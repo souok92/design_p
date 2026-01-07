@@ -1,0 +1,32 @@
+data:
+  batch_size: 16
+  data_dir: ../00_data
+  num_workers: 4
+  person: tk
+  sequence_length: 10
+logging:
+  checkpoint_dir: ./checkpoints/tk
+  log_dir: ./logs/tk
+  log_interval: 10
+  save_best_only: true
+  save_last: true
+loss:
+  type: MAE
+model:
+  dropout: 0.3
+  lstm_hidden_size: 256
+  lstm_num_layers: 2
+  num_outputs: 8
+  pretrained: true
+  sequence_length: 5
+seed: 42
+training:
+  early_stopping_patience: 20
+  gradient_clip: 1.0
+  learning_rate: 0.001
+  num_epochs: 100
+  optimizer: Adam
+  scheduler: ReduceLROnPlateau
+  scheduler_factor: 0.5
+  scheduler_patience: 10
+  weight_decay: 0.001

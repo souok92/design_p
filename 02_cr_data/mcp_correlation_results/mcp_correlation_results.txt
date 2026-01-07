@@ -1,0 +1,39 @@
+============================================================
+MCP-DIP and MCP-PIP Correlation Analysis Results
+============================================================
+
+MCP-DIP Correlations:
+------------------------------------------------------------
+Index Finger:
+  Correlation coefficient (r): 0.6751
+  P-value: 0.00e+00
+  DIP/MCP Ratio - Mean: 0.578, Median: 0.426, Std: 1.981
+
+Middle Finger:
+  Correlation coefficient (r): 0.6183
+  P-value: 0.00e+00
+  DIP/MCP Ratio - Mean: 0.514, Median: 0.421, Std: 0.790
+
+Ring Finger:
+  Correlation coefficient (r): 0.5682
+  P-value: 0.00e+00
+  DIP/MCP Ratio - Mean: 0.487, Median: 0.360, Std: 0.760
+
+
+MCP-PIP Correlations:
+------------------------------------------------------------
+Index Finger:
+  Correlation coefficient (r): 0.6858
+  P-value: 0.00e+00
+  PIP/MCP Ratio - Mean: 0.908, Median: 0.656, Std: 3.122
+
+Middle Finger:
+  Correlation coefficient (r): 0.6190
+  P-value: 0.00e+00
+  PIP/MCP Ratio - Mean: 0.808, Median: 0.650, Std: 1.250
+
+Ring Finger:
+  Correlation coefficient (r): 0.5578
+  P-value: 0.00e+00
+  PIP/MCP Ratio - Mean: 0.754, Median: 0.548, Std: 1.195
+

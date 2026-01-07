@@ -1,0 +1,48 @@
+# Configuration for TK model training with 3D CNN (R3D-18)
+# GPU: RTX 5070 Ti (16GB VRAM)
+
+# Data settings
+data:
+  data_dir: "../00_data"
+  person: "tk"
+  sequence_length: 16      # 16프레임 유지 가능
+  stride: 1
+  batch_size: 8            # 16GB면 여유 있음
+  num_workers: 4
+  augment: true
+  image_size: 224          # 224x224로 디테일 보존
+
+# Model settings
+model:
+  model_type: "r3d"
+  num_outputs: 8
+  dropout: 0.3
+  pretrained: true
+
+# Training settings
+training:
+  num_epochs: 100
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  optimizer: "AdamW"       # AdamW가 일반적으로 더 좋음
+  scheduler: "CosineAnnealingLR"  # Cosine이 더 부드러움
+  scheduler_patience: 10
+  scheduler_factor: 0.5
+  early_stopping_patience: 25
+  gradient_clip: 1.0
+  freeze_backbone_epochs: 5
+
+# Loss settings
+loss:
+  type: "SmoothL1"  # MAE와 MSE의 장점 결합, outlier에 robust
+
+# Logging and checkpointing
+logging:
+  log_interval: 10
+  checkpoint_dir: "./checkpoints/tk"
+  log_dir: "./logs/tk"
+  save_best_only: true
+  save_last: true
+
+# Seed for reproducibility
+seed: 42

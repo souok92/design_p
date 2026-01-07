@@ -1,0 +1,44 @@
+# Configuration for SJ model training with U-Net + GRU
+
+data:
+  data_dir: "../00_data"
+  person: "sj"
+  sequence_length: 10
+  stride: 1
+  batch_size: 8
+  num_workers: 4
+  augment: true
+  image_size: 224
+
+model:
+  model_type: "unet_gru"
+  in_channels: 3
+  base_features: 64
+  encoder_depth: 4
+  gru_hidden_size: 256
+  gru_num_layers: 2
+  num_outputs: 8
+  dropout: 0.3
+
+training:
+  num_epochs: 100
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: "AdamW"
+  scheduler: "ReduceLROnPlateau"
+  scheduler_patience: 10
+  scheduler_factor: 0.5
+  early_stopping_patience: 25
+  gradient_clip: 1.0
+
+loss:
+  type: "SmoothL1"
+
+logging:
+  log_interval: 10
+  checkpoint_dir: "./checkpoints/sj"
+  log_dir: "./logs/sj"
+  save_best_only: true
+  save_last: true
+
+seed: 42

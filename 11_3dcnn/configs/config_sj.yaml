@@ -1,0 +1,48 @@
+# Configuration for SJ model training with 3D CNN (R3D-18)
+# GPU: RTX 5070 Ti (16GB VRAM)
+
+# Data settings
+data:
+  data_dir: "../00_data"
+  person: "sj"
+  sequence_length: 16
+  stride: 1
+  batch_size: 8
+  num_workers: 4
+  augment: true
+  image_size: 224
+
+# Model settings
+model:
+  model_type: "r3d"
+  num_outputs: 8
+  dropout: 0.3
+  pretrained: true
+
+# Training settings
+training:
+  num_epochs: 100
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  optimizer: "AdamW"
+  scheduler: "CosineAnnealingLR"
+  scheduler_patience: 10
+  scheduler_factor: 0.5
+  early_stopping_patience: 25
+  gradient_clip: 1.0
+  freeze_backbone_epochs: 5
+
+# Loss settings
+loss:
+  type: "SmoothL1"
+
+# Logging and checkpointing
+logging:
+  log_interval: 10
+  checkpoint_dir: "./checkpoints/sj"
+  log_dir: "./logs/sj"
+  save_best_only: true
+  save_last: true
+
+# Seed for reproducibility
+seed: 42

@@ -1,0 +1,27 @@
+DIP-PIP Correlation Analysis Results
+============================================================
+
+Total samples: 10433
+Files analyzed: sj_1.csv, sj_2.csv, tk.csv
+
+
+Index Finger:
+  Correlation coefficient (r): 0.9932
+  P-value: 0.00e+00
+  PIP - Mean: 33.21, Std: 35.78
+  DIP - Mean: 20.91, Std: 22.16
+  DIP/PIP Ratio - Mean: 0.642, Median: 0.632, Std: 0.124
+
+Middle Finger:
+  Correlation coefficient (r): 0.9988
+  P-value: 0.00e+00
+  PIP - Mean: 37.28, Std: 39.23
+  DIP - Mean: 23.72, Std: 24.94
+  DIP/PIP Ratio - Mean: 0.634, Median: 0.635, Std: 0.091
+
+Ring Finger:
+  Correlation coefficient (r): 0.9960
+  P-value: 0.00e+00
+  PIP - Mean: 38.90, Std: 39.65
+  DIP - Mean: 25.27, Std: 25.46
+  DIP/PIP Ratio - Mean: 0.654, Median: 0.636, Std: 0.133

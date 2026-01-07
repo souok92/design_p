@@ -1,0 +1,8 @@
+{
+  "exp_name": "tk_gray3d_20251210_090139",
+  "best_val_loss": 9.456825934923613,
+  "final_epoch": 92,
+  "person": "tk",
+  "model_type": "gray3d",
+  "batch_size": 8
+}

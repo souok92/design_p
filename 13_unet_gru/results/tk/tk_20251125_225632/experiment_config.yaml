@@ -1,0 +1,51 @@
+# Configuration for TK model training with U-Net + GRU
+# GPU: RTX 5070 Ti (16GB VRAM)
+# Reference: Harvard U-Net-LSTM paper (2024)
+
+# Data settings
+data:
+  data_dir: "../00_data"
+  person: "tk"
+  sequence_length: 8     # 논문에서 효과 본 길이
+  stride: 1               # 연속 프레임 (중요!)
+  batch_size: 8
+  num_workers: 4
+  augment: true
+  image_size: 224
+
+# Model settings
+model:
+  model_type: "unet_gru"  # unet_gru 또는 unet_gru_light
+  in_channels: 3
+  base_features: 64       # U-Net encoder 기본 채널
+  encoder_depth: 4        # U-Net encoder 깊이 (output: 64*2^4 = 1024)
+  gru_hidden_size: 256    # GRU hidden size
+  gru_num_layers: 2       # GRU 2개 직렬 연결 (논문 구조)
+  num_outputs: 8
+  dropout: 0.3
+
+# Training settings
+training:
+  num_epochs: 100
+  learning_rate: 0.001    # U-Net은 scratch라서 조금 높게
+  weight_decay: 0.0001
+  optimizer: "AdamW"
+  scheduler: "ReduceLROnPlateau"
+  scheduler_patience: 10
+  scheduler_factor: 0.5
+  early_stopping_patience: 25
+  gradient_clip: 1.0
+
+# Loss settings
+loss:
+  type: "SmoothL1"
+
+# Logging
+logging:
+  log_interval: 10
+  checkpoint_dir: "./checkpoints/tk"
+  log_dir: "./logs/tk"
+  save_best_only: true
+  save_last: true
+
+seed: 42

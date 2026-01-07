@@ -1,0 +1,51 @@
+# Configuration for TK model training with TimeSformer
+# GPU: RTX 5070 Ti (16GB VRAM)
+
+# Data settings
+data:
+  data_dir: "../00_data"
+  person: "tk"
+  sequence_length: 8      # 8프레임
+  stride: 2               # 260ms 간격 -> 총 ~1초 커버
+  batch_size: 8           # Transformer도 메모리 많이 사용
+  num_workers: 4
+  augment: true           # 강화된 augmentation
+  image_size: 224
+
+# Model settings
+model:
+  model_type: "timesformer_small"  # timesformer, timesformer_small, timesformer_tiny
+  num_frames: 8           # sequence_length와 동일하게
+  image_size: 224
+  patch_size: 16
+  num_outputs: 8
+  dropout: 0.2
+
+# Training settings
+training:
+  num_epochs: 100
+  learning_rate: 0.0001
+  weight_decay: 0.01      # Transformer는 weight decay 좀 더 크게
+  optimizer: "AdamW"
+  scheduler: "CosineAnnealingWarmRestarts"
+  T_0: 20                 # Restart period
+  T_mult: 2
+  early_stopping_patience: 30
+  gradient_clip: 1.0
+  warmup_epochs: 5        # Learning rate warmup
+  label_smoothing: 0.0    # Regression이라 사용 안 함
+
+# Loss settings
+loss:
+  type: "SmoothL1"
+
+# Logging and checkpointing
+logging:
+  log_interval: 10
+  checkpoint_dir: "./checkpoints/tk"
+  log_dir: "./logs/tk"
+  save_best_only: true
+  save_last: true
+
+# Seed for reproducibility
+seed: 42

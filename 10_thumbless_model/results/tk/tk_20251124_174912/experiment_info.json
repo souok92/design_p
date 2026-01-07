@@ -1,0 +1,27 @@
+{
+  "experiment_name": "tk_20251124_174912",
+  "timestamp": "2025-11-24 17:49:26",
+  "person": "tk",
+  "config_file": ".\\configs\\config_tk.yaml",
+  "checkpoint_file": ".\\checkpoints\\tk\\best_model.pth",
+  "checkpoint_epoch": 80,
+  "checkpoint_val_loss": 9.785810998723477,
+  "device": "cuda",
+  "test_samples": 624,
+  "model_config": {
+    "sequence_length": 5,
+    "lstm_hidden_size": 256,
+    "lstm_num_layers": 2,
+    "dropout": 0.3
+  },
+  "training_config": {
+    "learning_rate": 0.001,
+    "optimizer": "Adam",
+    "loss_type": "MAE"
+  },
+  "results": {
+    "overall_mae": 10.719626426696777,
+    "overall_rmse": 15.984813690185547,
+    "overall_mse": 281.7120361328125
+  }
+}

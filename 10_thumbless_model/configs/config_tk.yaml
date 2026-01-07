@@ -1,0 +1,45 @@
+# Configuration for TK model training
+
+# Data settings
+data:
+  data_dir: "../00_data"
+  person: "tk"
+  sequence_length: 10
+  batch_size: 16
+  num_workers: 4
+
+# Model settings
+model:
+  sequence_length: 5
+  lstm_hidden_size: 256
+  lstm_num_layers: 2
+  num_outputs: 8
+  dropout: 0.3
+  pretrained: true
+
+# Training settings
+training:
+  num_epochs: 100
+  learning_rate: 0.001
+  weight_decay: 0.001
+  optimizer: "Adam"  # Adam or SGD
+  scheduler: "ReduceLROnPlateau"  # ReduceLROnPlateau, StepLR, or None
+  scheduler_patience: 10
+  scheduler_factor: 0.5
+  early_stopping_patience: 20
+  gradient_clip: 1.0
+
+# Loss settings
+loss:
+  type: "MAE"  # MSE or MAE (MAE 추천: 각도 차이를 직관적으로 표현)
+
+# Logging and checkpointing
+logging:
+  log_interval: 10  # Log every N batches
+  checkpoint_dir: "./checkpoints/tk"
+  log_dir: "./logs/tk"
+  save_best_only: true
+  save_last: true
+
+# Seed for reproducibility
+seed: 42
