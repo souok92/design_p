@@ -1,0 +1,8 @@
+{
+    "lib": "libvart-dpu-runner.so",
+    "filename": "kr260_CNN_ResNet50_ChannelStack_DPU_int.xmodel.xmodel",
+    "kernel": [
+        "subgraph_CNN_ResNet50_ChannelStack_DPU__CNN_ResNet50_ChannelStack_DPU_10179"
+    ],
+    "target": "DPUCZDX8G_ISA1_B512_0101000056010400"
+}
