@@ -1,0 +1,9 @@
+{
+  "exp_name": "tk_channel2d_20260221_210740",
+  "best_val_loss": 9.169266712971222,
+  "final_epoch": 90,
+  "person": "tk",
+  "model_type": "channel_stacked_2d",
+  "batch_size": 16,
+  "num_frames": 16
+}

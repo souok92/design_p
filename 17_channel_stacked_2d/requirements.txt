@@ -1,0 +1,16 @@
+# PyTorch (install with CUDA support for GPU training)
+# Visit https://pytorch.org/get-started/locally/ for the correct command
+# torch>=2.0.0
+# torchvision>=0.15.0
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+Pillow>=9.5.0
+
+# Training utilities
+tqdm>=4.65.0
+tensorboard>=2.13.0
+
+# Evaluation & visualization
+matplotlib>=3.7.0
